@@ -177,12 +177,19 @@ HAVING language_id = 1;
 
 -- 7b. Use subqueries to display all actors who appear in the film Alone Trip.
 
-SELECT film_actor.film_id, film_actor.film_id
-FROM film_actor
-WHERE film_actor.film_id IN
-   (SELECT film.film_id
-    FROM film
-    WHERE film.title = 17);
+--SELECT film_actor.film_id, film_actor.film_id
+--FROM film_actor
+--WHERE film_actor.film_id IN
+   --(SELECT film.film_id
+    --FROM film
+    --WHERE film.title = 17);
+
+SELECT *
+FROM actor
+WHERE actor_id =
+    (SELECT actor_id 
+     FROM film_actor 
+     WHERE film_id = 17);
 
 -- 7c. You want to run an email marketing campaign in Canada, for which you will need the names and email addresses of all Canadian customers. Use joins to retrieve this information.
 
