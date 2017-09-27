@@ -1,3 +1,6 @@
+--Due to some time constraints, I wasn't able to finish the remaining #7 set and #8 set
+--Will definitely try to complete the problems by this weekend if possible, and review solution!
+
 --1a: You need a list of all the actors' first name and last name
 SELECT first_name, last_name FROM actor;
 
@@ -171,33 +174,42 @@ ORDER BY last_name ASC;
 
 SELECT film.title
 FROM film
-WHERE film.title LIKE 'K%' OR WHERE film.title LIKE 'Q%'
-HAVING language_id = 1;
+WHERE (film.title LIKE 'K%' OR WHERE film.title LIKE 'Q%') 
+AND language_id = 1;
 
 
 -- 7b. Use subqueries to display all actors who appear in the film Alone Trip.
 
---SELECT film_actor.film_id, film_actor.film_id
---FROM film_actor
---WHERE film_actor.film_id IN
-   --(SELECT film.film_id
-    --FROM film
-    --WHERE film.title = 17);
+-- Names of the actors
+-- Alone Trip film_id = 17
+-- Find actor_id based on film_id from film_actor table
+-- match the actor_id from the actor table and get the first & last name
 
-SELECT *
+
+SELECT first_name, last_name
 FROM actor
-WHERE actor_id =
-    (SELECT actor_id 
-     FROM film_actor 
-     WHERE film_id = 17);
+WHERE actor.actor_id IN
+(SELECT actor_id
+FROM film_actor
+WHERE film_actor.film_id =
+(SELECT film_id
+FROM film
+WHERE title = 'ALONE TRIP'));
+
+-- select first_name, last_name
+-- from film 
+-- join film_actor on film.film_id = film_actor.film_id
+-- join actor on film_actor.actor_id = actor.actor_id
+-- where title = 'ALONE TRIP';
+
 
 -- 7c. You want to run an email marketing campaign in Canada, for which you will need the names and email addresses of all Canadian customers. Use joins to retrieve this information.
 
-
+SELECT
 
 -- 7d. Sales have been lagging among young families, and you wish to target all family movies for a promotion. Identify all movies categorized as a family film.
 
-
+SELECT
 
 -- Now we mentioned family film, but there is no family film category. There’s a category that resembles that. In the real world nothing will be exact.
 -- 7e. Display the most frequently rented movies in descending order.
@@ -208,19 +220,22 @@ ORDER BY rental_duration DESC;
 
 -- 7f. Write a query to display how much business, in dollars, each store brought in.
 
-
+SELECT
 
 -- 7g. Write a query to display for each store its store ID, city, and country.
 
+SELECT
 
 -- 7h. List the top five genres in gross revenue in descending order. 
 
+SELECT
 
 -- 8a. In your new role as an executive, you would like to have an easy way of viewing the Top five genres by gross revenue. Use the solution from the problem above to create a view. 
 
+SELECT
 
 -- 8b. How would you display the view that you created in 8a?
-
+SELECT
 
 -- 8c. You find that you no longer need the view top_five_genres. Write a query to delete it.
 
