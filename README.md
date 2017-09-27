@@ -1,5 +1,7 @@
 # sqlpractice
 
+```sql
+--Due to some time constraints, I wasn't able to finish the remaining #7 set and #8 set
 --Will definitely try to complete the problems by this weekend if possible, and review solution!
 
 --1a: You need a list of all the actors' first name and last name
@@ -241,3 +243,4 @@ SELECT
 -- 8c. You find that you no longer need the view top_five_genres. Write a query to delete it.
 
 DROP VIEW top_five_genres;
+```
